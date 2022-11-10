@@ -11,11 +11,8 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_phoneFragment"
-            app:destination="@id/phoneFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_secondAnswerFragment"
-            app:destination="@id/secondAnswerFragment" />
+            android:id="@+id/action_homeFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
     </fragment>
     <fragment
         android:id="@+id/phoneFragment"
@@ -23,8 +20,13 @@
         android:label="fragment_phone"
         tools:layout="@layout/fragment_phone" />
     <fragment
-        android:id="@+id/secondAnswerFragment"
-        android:name="com.example.navigation.fragments.SecondAnswerFragment"
-        android:label="fragment_second_answer"
-        tools:layout="@layout/fragment_second_answer" />
+        android:id="@+id/gameFragment"
+        android:name="com.example.navigation.fragments.GameFragment"
+        android:label="fragment_game"
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_gameFragment_to_phoneFragment"
+            app:destination="@id/phoneFragment"
+            app:popUpTo="@id/homeFragment" />
+    </fragment>
 </navigation>

@@ -6,4 +6,5 @@
     <string name="open">open</string>
     <string name="close">close</string>
     <string name="play_game">PLAY GAME</string>
+    <string name="continuar">Continue</string>
 </resources>
