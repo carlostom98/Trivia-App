@@ -5,9 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import com.example.navigation.MainActivity
 import com.example.navigation.R
 import com.example.navigation.databinding.FragmentHomeBinding
+import kotlin.random.Random
 
 class HomeFragment : Fragment() {
 
@@ -23,6 +26,15 @@ class HomeFragment : Fragment() {
         this.activity = getActivity() as MainActivity
 
         _binding=FragmentHomeBinding.inflate(inflater, container, false)
+
+        binding.buttonPlay.setOnClickListener {
+            val randomInt=Random.nextInt(0,2)
+            if(randomInt != 1) {
+                it.findNavController().navigate(R.id.action_homeFragment_to_phoneFragment)
+            }else{
+                it.findNavController().navigate(R.id.action_homeFragment_to_secondAnswerFragment)
+            }
+        }
         return binding.root
     }
 
