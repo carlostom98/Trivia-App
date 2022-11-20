@@ -6,12 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.navigation.MainActivity
-import com.example.navigation.R
-import com.example.navigation.databinding.FragmentSecondAnswerBinding
+import com.example.navigation.databinding.FragmentAboutBinding
 
-class SecondAnswerFragment : Fragment() {
+class AboutFragment : Fragment() {
 
-    private var _binding:FragmentSecondAnswerBinding?=null
+    private var _binding:FragmentAboutBinding?=null
     private val binding get() = _binding!!
 
     private lateinit var activity:MainActivity
@@ -20,7 +19,7 @@ class SecondAnswerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         this.activity= getActivity() as MainActivity
-        _binding=FragmentSecondAnswerBinding.inflate(inflater,container, false)
+        _binding=FragmentAboutBinding.inflate(inflater,container, false)
         return binding.root
     }
 }

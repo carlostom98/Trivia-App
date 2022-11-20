@@ -7,4 +7,10 @@
     <string name="close">close</string>
     <string name="play_game">PLAY GAME</string>
     <string name="continuar">Continue</string>
+    <string name="navigation">Navigation</string>
+    <string name="principal_menu">Principal</string>
+    <string name="about_game">About</string>
+    <string name="game_rules">Game Rules</string>
+    <string name="share_menu">Share</string>
+    <string name="share_succes">Compartido con éxito</string>
 </resources>

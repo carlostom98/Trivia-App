@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.navigation.MainActivity
 import com.example.navigation.R
 import com.example.navigation.databinding.FragmentGameBinding
@@ -26,6 +28,8 @@ class GameFragment : Fragment() {
         binding.continueButton.setOnClickListener {
             it.findNavController().navigate(R.id.action_gameFragment_to_phoneFragment)
         }
+        val helloFragment:GameFragmentArgs by navArgs()
+        Toast.makeText(this.context, helloFragment.saludoFragment, Toast.LENGTH_LONG ).show()
         return binding.root
     }
 
