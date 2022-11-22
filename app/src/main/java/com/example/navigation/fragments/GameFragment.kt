@@ -26,7 +26,7 @@ class GameFragment : Fragment() {
         this.activity = getActivity() as MainActivity
         _binding= FragmentGameBinding.inflate(inflater,container,false)
         binding.continueButton.setOnClickListener {
-            it.findNavController().navigate(R.id.action_gameFragment_to_phoneFragment)
+            it.findNavController().navigate(GameFragmentDirections.actionGameFragmentToPhoneFragment("Message correctly send"))
         }
         val helloFragment:GameFragmentArgs by navArgs()
         Toast.makeText(this.context, helloFragment.saludoFragment, Toast.LENGTH_LONG ).show()

@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
+import androidx.navigation.fragment.navArgs
 import com.example.navigation.MainActivity
 import com.example.navigation.R
 import com.example.navigation.databinding.FragmentPhoneBinding
@@ -42,8 +43,9 @@ class PhoneFragment : Fragment() {
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
     }
     private fun getShareIntent():Intent{
+        val args:PhoneFragmentArgs by navArgs()
         val shareIntent = Intent(Intent.ACTION_SEND)
-        shareIntent.setType("text/plain").putExtra(Intent.EXTRA_TEXT, getString(R.string.share_succes))
+        shareIntent.setType("text/plain").putExtra(Intent.EXTRA_TEXT, args.sendPhrase)
         return shareIntent
     }
 

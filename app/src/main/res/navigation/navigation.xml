@@ -20,7 +20,11 @@
         android:id="@+id/phoneFragment"
         android:name="com.example.navigation.fragments.PhoneFragment"
         android:label="@string/navigation"
-        tools:layout="@layout/fragment_phone" />
+        tools:layout="@layout/fragment_phone" >
+        <argument
+            android:name="sendPhrase"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/gameFragment"
         android:name="com.example.navigation.fragments.GameFragment"
