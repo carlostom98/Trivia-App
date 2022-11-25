@@ -3,6 +3,7 @@ package com.example.navigation.fragments
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
@@ -16,6 +17,7 @@ import com.example.navigation.databinding.FragmentPhoneBinding
 class PhoneFragment : Fragment() {
     private var _binding:FragmentPhoneBinding?=null
     private val binding get() = _binding!!
+    private val argsReceived:PhoneFragmentArgs by navArgs()
 
     private lateinit var  activity:MainActivity
     override fun onCreateView(
@@ -24,6 +26,7 @@ class PhoneFragment : Fragment() {
     ): View {
         this.activity = getActivity() as MainActivity
         _binding= FragmentPhoneBinding.inflate(inflater, container, false)
+        Toast.makeText(this.context, argsReceived.winOrLoseMessage, Toast.LENGTH_LONG).show()
         return binding.root
     }
 
@@ -43,9 +46,8 @@ class PhoneFragment : Fragment() {
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
     }
     private fun getShareIntent():Intent{
-        val args:PhoneFragmentArgs by navArgs()
         val shareIntent = Intent(Intent.ACTION_SEND)
-        shareIntent.setType("text/plain").putExtra(Intent.EXTRA_TEXT, args.sendPhrase)
+        shareIntent.setType("text/plain").putExtra(Intent.EXTRA_TEXT, argsReceived  .sendPhrase)
         return shareIntent
     }
 

@@ -16,4 +16,5 @@
     <string name="rules">Rules</string>
     <string name="second_item">Second</string>
     <string name="answers">ANSWERS</string>
+    <string name="radiobuttons">RadioButton</string>
 </resources>
