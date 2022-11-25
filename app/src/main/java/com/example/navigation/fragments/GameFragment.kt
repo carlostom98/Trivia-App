@@ -6,16 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.navigation.MainActivity
 import com.example.navigation.R
 import com.example.navigation.databinding.FragmentGameBinding
+import com.example.navigation.viewModel.QuestionsViewModel
 
 class GameFragment : Fragment() {
 
     private var _binding:FragmentGameBinding?=null
     private val binding get() = _binding!!
+    private  val  questionsViewModel:QuestionsViewModel by viewModels()
 
     private lateinit var activity:MainActivity
     override fun onCreateView(
@@ -28,9 +31,23 @@ class GameFragment : Fragment() {
         binding.continueButton.setOnClickListener {
             it.findNavController().navigate(GameFragmentDirections.actionGameFragmentToPhoneFragment("Message correctly send"))
         }
+        questionsViewModel.setQuestion()
+        questionsViewModel.question.observe(activity){
+            val shuffledAnswers= it.answers.shuffled()
+            with(binding){
+                textView.text=it.question
+                textView2.text=shuffledAnswers[0]
+                textView3.text=shuffledAnswers[1]
+                textView4.text=shuffledAnswers[2]
+                textView5.text=shuffledAnswers[3]
+            }
+        }
         val helloFragment:GameFragmentArgs by navArgs()
         Toast.makeText(this.context, helloFragment.saludoFragment, Toast.LENGTH_LONG ).show()
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+    }
 }
