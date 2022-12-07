@@ -13,8 +13,8 @@
         <action
             android:id="@+id/action_homeFragment_to_gameFragment"
             app:destination="@id/gameFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim" />
+            app:enterAnim="@anim/animations_fade_id"
+            app:exitAnim="@anim/slide_animation" />
     </fragment>
     <fragment
         android:id="@+id/phoneFragment"
@@ -36,6 +36,8 @@
         <action
             android:id="@+id/action_gameFragment_to_phoneFragment"
             app:destination="@id/phoneFragment"
+            app:enterAnim="@anim/animations_fade_id"
+            app:exitAnim="@anim/slide_animation"
             app:popUpTo="@id/homeFragment" />
         <argument
             android:name="saludoFragment"

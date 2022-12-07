@@ -13,6 +13,7 @@ import com.example.navigation.MainActivity
 import com.example.navigation.R
 import com.example.navigation.databinding.FragmentGameBinding
 import com.example.navigation.viewModel.QuestionsViewModel
+import timber.log.Timber
 
 class GameFragment : Fragment() {
 
@@ -30,6 +31,7 @@ class GameFragment : Fragment() {
         _binding = FragmentGameBinding.inflate(inflater, container, false)
         questionsViewModel.setQuestion()
         questionsViewModel.question.observe(activity) {
+            Timber.i("onStart Called")
             val shuffledAnswers = it.answers.shuffled()
             with(binding) {
                 textView.text = it.question

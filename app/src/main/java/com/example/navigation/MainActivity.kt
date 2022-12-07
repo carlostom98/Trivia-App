@@ -12,6 +12,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.example.navigation.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
+import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,8 +29,34 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
         appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
         NavigationUI.setupWithNavController(binding.navigationView, navController)
+        Timber.i("onCreate Method")
     }
 
+    override fun onStart() {
+        super.onStart()
+        Timber.i("onStart Method")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Timber.i("onResume Method")
+
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Timber.i("onPause Method")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Timber.i("onStop Method")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Timber.i("onDestroy Method")
+    }
     override fun onSupportNavigateUp(): Boolean {
         val navController= findNavController(R.id.fragmentContainerView)
         return NavigationUI.navigateUp(navController,appBarConfiguration)
